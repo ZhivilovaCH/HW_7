@@ -11,36 +11,22 @@
 # **Ввод:** пара-ра-рам рам-пам-папам па-ра-па-да
 #     **Вывод:** Парам пам-пам
 
-rhyme = input('Введите кричалку: ')
-my_list = rhyme.split( )
+list1 = input('Введите кричалку: ')
+my_list = list1.split( )
 print(my_list)
-
-vowels = {1: 'аяуюоеёэиы'}
-count = 0
-
-for i in range(my_list):
-    for j in my_list[i]:
-        for g in vowels:
-            if j in vowels[g]:
-                count += 1
-
-
-def count_rhythm(rhyme):
+def count_rhythm(str):
+    str = str.split()
     list_1 = []
-    count = 0
-    temp = 0
-    for i in rhyme:
-        for j in rhyme[i]:
-            if j in 'аеёиоуыэюя':
+    for word in str:
+        count = 0
+        for i in word:
+            if i in 'ааяуюоеёэиы':
                 count += 1
-                list_1.append(count)
-            if(temp == 0):
-                temp = count
+        list_1.append(count)
+    return len(list_1) == list_1.count(list_1[0])
 
-    if (temp < count > temp):
-        print('Пам парам')
-    if (temp == count):
-        print('Парам пам-пам')
 
-print(list_1)
-
+if count_rhythm(list1):
+    print('Парам пам-пам')
+else:
+    print('Пам парам')
